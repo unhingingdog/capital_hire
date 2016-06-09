@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @items = Item.all
@@ -13,10 +14,14 @@ class ItemsController < ApplicationController
 
     if @item.save
       flash[:notice] = "Item listed"
-      redirect_to root_path
+      redirect_to item_path(@item)
     else
       flash[:error] = "Item was not listed"
     end
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
   private

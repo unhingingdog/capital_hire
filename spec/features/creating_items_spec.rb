@@ -12,4 +12,9 @@ feature 'Creating Items' do
     fill_in 'Rate', with: 10
     click_button 'List Item'
   end
+
+  scenario "can view item" do
+    visit "/"
+    
+  end
 end
