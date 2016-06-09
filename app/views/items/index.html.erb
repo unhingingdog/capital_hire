@@ -1,0 +1,12 @@
+<%= link_to "List Equipment", new_item_path %>
+
+<div class="index">
+  <% @items.each do |item| %>
+    <div class="index-items">
+      <h3><%= link_to item.title, item %></h3>
+      <small><%= item.category %></small>
+      <p><%= item.description %></p>
+      <p>$<%= item.rate %> per day</p>
+    </div>
+  <% end %>
+</div>
