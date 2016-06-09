@@ -5,6 +5,7 @@
     <div class="index-items">
       <h3><%= link_to item.title, item %></h3>
       <small><%= item.category %></small>
+      <div><%= image_tag item.image.url(:thumb) if item.image? %></div>
       <p><%= item.description %></p>
       <p>$<%= item.rate %> per day</p>
     </div>

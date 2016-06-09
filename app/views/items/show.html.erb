@@ -1,6 +1,5 @@
-
-
-    <h3><%= @item.title %></h3>
-    <small><%= @item.category %></small>
-    <p><%= @item.description %></p>
-    <p>$<%= @item.rate %> per day</p>
+<div><%= image_tag @item.image.url(:medium) if @item.image? %></div>
+<h3><%= @item.title %></h3>
+<small><%= @item.category %></small>
+<p><%= @item.description %></p>
+<p>$<%= @item.rate %> per day</p>
