@@ -1,10 +1,16 @@
 <div class="index">
   <%= link_to "List Equipment", new_item_path %>
+  <div class="index-categories">
+    <%= link_to "All", items_path %>
+    <% Category.all.each do |c| %>
+      <%= link_to c.name, items_path(category: c.name) %>
+    <% end %>
+  </div>
   <% @items.each do |item| %>
     <div class="index-items">
       <h3><%= link_to item.title, item %></h3>
-      <small><%= item.category %></small><br /><br />
-      <small><%= item.user %></small><br />
+      <small><%= item.category.name %></small><br /><br />
+      <small><%= item.user.email %></small><br />
       <div><%= image_tag item.image.url(:thumb) if item.image? %></div>
       <p><%= item.description %></p>
       <p>$<%= item.rate %> per day</p>

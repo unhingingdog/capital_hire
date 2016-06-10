@@ -2,7 +2,12 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @items = Item.all
+    if params[:category].blank?
+      @items = Item.all.order("created_at DESC")
+    else
+      @category_id = Category.find_by(name: params[:category]).id
+      @items = Item.where(category_id: @category_id).order("created_at DESC")
+    end
   end
 
   def new
@@ -28,7 +33,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :description, :category, :rate, :image)
+    params.require(:item).permit(:title, :description, :category_id, :rate, :image)
   end
 
 end
