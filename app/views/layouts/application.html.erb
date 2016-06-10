@@ -9,6 +9,13 @@
 <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  <%= link_to "Home", root_path %>
+  <% if session[:user] == current_user %>
+    <%= link_to "Sign In", new_user_session_path %>
+    <%= link_to "Sign Up", new_user_registration_path %>
+  <% else %>
+    <%= link_to "Sign Out", destroy_user_session_path, method: :get %>
+  <% end %>
   <%= yield %>
 </body>
 </html>
