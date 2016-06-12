@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="jumbotron col-md-10 col-md-offset-1 home-banner">
+    <%= image_tag("logo.jpg") %>
+
+    <div class="col-md-12">
+      <div class="btn-group">
+        <button type="button" class="btn btn-default"><%= link_to "Hire Equipment", items_path %></button>
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu">
+          <% Category.all.each do |c| %>
+            <li><%= link_to c.name, items_path(category: c.name) %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default"><%= link_to "List Equipment", new_item_path %></button>
+      </div>
+    </div>
+    <p id="jumbotron-copy">
+      Dreamcatcher freegan kickstarter asymmetrical, photo booth etsy normcore church-key brunch.
+      Bicycle rights paleo dreamcatcher shoreditch neutra, cliche kickstarter. Gochujang chia cray,
+      food truck venmo tilde cred bushwick. Locavore hoodie aesthetic bicycle rights bespoke green
+      juice mustache ennui. Banjo iPhone lomo photo booth before they sold out, intelligentsia forage
+      YOLO waistcoat typewriter tilde. Venmo whatever distillery vice man braid. Green juice gastropub
+      vinyl craft beer cold-pressed sustainable.
+    </p>
+  </div>
+</div>

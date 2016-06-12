@@ -1,6 +1,11 @@
-<div><%= image_tag @item.image.url(:medium) if @item.image? %></div>
-<h3><%= @item.title %></h3>
-<small><%= @item.category.name %></small>
-<p><%= @item.description %></p>
-<p>$<%= @item.rate %> per day</p>
-<small>Owner: <%= @item.user.email %></small><br />
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div><%= image_tag @item.image.url(:medium) if @item.image? %></div>
+    <h3><%= @item.title %></h3>
+    <small><%= @item.category.name %></small>
+    <p><%= @item.description %></p>
+    <p>$<%= @item.rate %> per day</p>
+    <small>Owner: <%= @item.user.email %></small><br />
+    <div class="btn btn-default hire-button"><%= link_to "Hire now", items_hire_path %></div>
+  </div>
+</div>

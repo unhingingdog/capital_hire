@@ -1,0 +1,24 @@
+
+
+
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <%= link_to "Home", root_path, class: "navbar-brand" %>
+      <%= link_to "List Equipment", new_item_path, class: "navbar-brand" %>
+    </div>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if session[:user] == current_user %>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <% else %>
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :get %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

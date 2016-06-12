@@ -1,5 +1,12 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :home]
+
+  def home
+  end
+
+  def hire
+    # temporary - use lineitem type model
+  end
 
   def index
     if params[:category].blank?

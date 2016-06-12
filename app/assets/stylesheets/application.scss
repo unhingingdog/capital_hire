@@ -1,0 +1,51 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.header {
+  color: white;
+  background-color: black;
+  padding: 20px 10px 15px 10px;
+  a a:visited {
+    color: white !important;
+    text-decoration: none;
+  }
+}
+
+#jumbotron-copy {
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.index-main {
+
+}
+
+.categories-menu {
+  padding-bottom: 15px;
+}
+
+.index-items {
+  border: 1px solid;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.index-images {
+  padding: 10px;
+}
+
+.index_item-content {
+
+}
+
+.home-banner {
+  text-align: center;
+  img {
+    width: 50%;
+    padding-bottom: 20px;
+  }
+}
+
+.hire-button {
+  margin-top: 20px;
+}

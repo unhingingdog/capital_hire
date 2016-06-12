@@ -7,15 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= link_to "Home", root_path %>
-  <% if session[:user] == current_user %>
-    <%= link_to "Sign In", new_user_session_path %>
-    <%= link_to "Sign Up", new_user_registration_path %>
-  <% else %>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :get %>
-  <% end %>
-  <%= yield %>
+  <div class="container-fluid">
+    <%= render 'layouts/header' %>
+    <% if flash[:notice] %>
+      <p class="flash-error"><%= notice %></p>
+    <% end %>
+    <% if flash[:alert] %>
+      <p class="flash-notice"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+  </div>
 </body>
 </html>

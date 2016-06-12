@@ -1,19 +1,33 @@
-<div class="index">
-  <%= link_to "List Equipment", new_item_path %>
-  <div class="index-categories">
-    <%= link_to "All", items_path %>
-    <% Category.all.each do |c| %>
-      <%= link_to c.name, items_path(category: c.name) %>
-    <% end %>
+<div class="index-main">
+
+  <div class="dropdown col-md-2 col-md-offset-5 categories-menu">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Categories
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu col-md-3" aria-labelledby="dropdownMenu1">
+      <li><%= link_to "All", items_path %></li>
+      <li role="separator" class="divider"></li>
+      <% Category.all.each do |c| %>
+        <li><%= link_to c.name, items_path(category: c.name) %></li>
+      <% end %>
+    </ul>
   </div>
+
+
+<div class="row">
   <% @items.each do |item| %>
-    <div class="index-items">
-      <h3><%= link_to item.title, item %></h3>
-      <small><%= item.category.name %></small><br /><br />
-      <small><%= item.user.email %></small><br />
-      <div><%= image_tag item.image.url(:thumb) if item.image? %></div>
-      <p><%= item.description %></p>
-      <p>$<%= item.rate %> per day</p>
+    <div class="col-md-8 col-md-offset-2 index-items">
+      <div class="col-md-3">
+        <div class="index-images"><%= image_tag item.image.url(:thumb) if item.image? %></div>
+      </div>
+      <div class="col-md-3 col-md-offset-1 index-item-content">
+        <h3><%= link_to item.title, item %></h3>
+        (<%= item.category.name %>) <br />
+        <p>$<%= item.rate %> per day</p>
+      </div>
     </div>
   <% end %>
+</div>
+
 </div>
