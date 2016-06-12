@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <div><%= image_tag @item.image.url(:medium) if @item.image? %></div>
+    <div><%= image_tag @item.image.url(:medium, timestamp:false) if @item.image? %></div>
     <h3><%= @item.title %></h3>
     <small><%= @item.category.name %></small>
     <p><%= @item.description %></p>

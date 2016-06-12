@@ -19,7 +19,7 @@
   <% @items.each do |item| %>
     <div class="col-md-8 col-md-offset-2 index-items">
       <div class="col-md-3">
-        <div class="index-images"><%= image_tag item.image.url(:thumb) if item.image? %></div>
+        <div class="index-images"><%= image_tag item.image.url(:thumb, timestamp:false) if item.image? %></div>
       </div>
       <div class="col-md-3 col-md-offset-1 index-item-content">
         <h3><%= link_to item.title, item %></h3>
