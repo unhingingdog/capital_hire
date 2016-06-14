@@ -14,38 +14,9 @@
 
 //home
 
-.home-background {
-  background-image: url('tools.jpeg');
-}
-
-#jumbotron-copy {
-  padding: 20px;
-  margin-top: 40px;
-}
-
-.index-main {
-
-}
-
-.categories-menu {
-  padding-bottom: 15px;
-}
-
-.index-items {
-  border: 1px solid;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.index-images {
-  padding: 10px;
-}
-
-.index_item-content {
-
-}
-
 .home-banner {
+  background-image: url('gravel.jpg');
+  background-size: cover;
   text-align: center;
   img {
     width: 50%;
@@ -53,8 +24,28 @@
   }
 }
 
-.hire-button {
+#jumbotron-copy {
+  background-color: white;
+  width: 80%;
+  margin-left: 10%;
   margin-top: 20px;
+  padding: 10px;
+}
+
+//index
+
+
+.categories-menu {
+  padding: 15px;
+  margin-left: 20px;
+}
+
+.index-item {
+  min-height: 270px;
+}
+
+.index-image {
+  min-height: 160px;
 }
 
 //show
@@ -63,4 +54,8 @@
   border: 1px solid;
   border-radius: 5px;
   padding: 10px;
+}
+
+.hire-button {
+  margin-top: 20px;
 }
