@@ -11,6 +11,13 @@
   }
 }
 
+
+//home
+
+.home-background {
+  background-image: url('tools.jpeg');
+}
+
 #jumbotron-copy {
   padding: 20px;
   margin-top: 40px;
@@ -48,4 +55,12 @@
 
 .hire-button {
   margin-top: 20px;
+}
+
+//show
+
+.description-specs {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 10px;
 }

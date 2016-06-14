@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160610031131) do
+ActiveRecord::Schema.define(version: 20160614054103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,15 +20,6 @@ ActiveRecord::Schema.define(version: 20160610031131) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "equipment", force: :cascade do |t|
-    t.string   "Title"
-    t.string   "Description"
-    t.string   "Category"
-    t.integer  "Rate"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "items", force: :cascade do |t|
@@ -43,7 +34,45 @@ ActiveRecord::Schema.define(version: 20160610031131) do
     t.datetime "image_updated_at"
     t.integer  "user_id"
     t.integer  "category_id"
+    t.string   "specs"
+    t.integer  "location_id"
   end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "order_id"
+    t.decimal  "unit_price",  precision: 12, scale: 3
+    t.integer  "quantity"
+    t.decimal  "total_price", precision: 12, scale: 3
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  add_index "order_items", ["item_id"], name: "index_order_items_on_item_id", using: :btree
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
+
+  create_table "order_statuses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.decimal  "subtotal",        precision: 12, scale: 3
+    t.decimal  "delivery",        precision: 12, scale: 3
+    t.decimal  "total",           precision: 12, scale: 3
+    t.integer  "order_status_id"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
+
+  add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -1,9 +1,15 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <div><%= image_tag @item.image.url(:medium, timestamp:false) if @item.image? %></div>
-    <h3><%= @item.title %></h3>
-    <small><%= @item.category.name %></small>
-    <p><%= @item.description %></p>
+    <p><%= @item.title %></p>
+    <p><small><%= @item.category.name %></small></p>
+    <p><small><%= @item.location.name %></small></p>
+    <div class="description-specs">
+      <p>description:</p>
+      <p><%= @item.description %></p>
+      <h3>specs:</h3>
+      <p><%= @item.specs %></p>
+    </div>
     <p>$<%= @item.rate %> per day</p>
     <small>Owner: <%= @item.user.email %></small><br />
     <div class="btn btn-default hire-button"><%= link_to "Hire now", items_hire_path %></div>
