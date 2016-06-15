@@ -1,34 +1,30 @@
+<div class="container-fluid">
+  <div class="row">
 
-<div class="row">
-  <div class="jumbotron col-md-10 col-md-offset-1 home-banner">
-    <%= image_tag("logo.jpg") %>
-
-    <div class="col-md-12">
-      <div class="btn-group">
-        <button type="button" class="btn btn-default"><%= link_to "Hire Equipment", items_path %></button>
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="caret"></span>
-          <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu">
-          <% Category.all.each do |c| %>
-            <li><%= link_to c.name, items_path(category: c.name) %></li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-default"><%= link_to "List Equipment", new_item_path %></button>
+    <!-- banner -->
+    <div class="banner">
+      <%= image_tag("wheelbarrow.gif") %>
+      <h1>Hire Share</h1>
+      <!-- buttons -->
+      <div class="col-md-12">
+        <div class="btn-group btn-custom">
+          <button type="button" class="btn btn-default"><%= link_to "Hire Equipment", items_path %></button>
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu">
+            <% Category.all.each do |c| %>
+              <li><%= link_to c.name, items_path(category: c.name) %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default"><%= link_to "List Equipment", new_item_path %></button>
+        </div>
       </div>
     </div>
-    <p id="jumbotron-copy">
-      HireShare (or probably some different name because that's a shitty name) is a peer-to-peer
-      equipment hiring market. HireShare enables owners to make easy money from idle
-      equipment when it isn't needed, whilst creating
-      an economical, flexible market for equipment hire.
-    </p>
-  </div>
-</div>
 
-<div class="row home-background">
 
-</div>
+  </div><!--row end -->
+</div><!--container end -->
