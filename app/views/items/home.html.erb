@@ -1,30 +1,58 @@
-<div class="container-fluid">
-  <div class="row">
-
-    <!-- banner -->
-    <div class="banner">
-      <%= image_tag("wheelbarrow.gif") %>
-      <h1>Hire Share</h1>
-      <!-- buttons -->
-      <div class="col-md-12">
-        <div class="btn-group btn-custom">
-          <button type="button" class="btn btn-default"><%= link_to "Hire Equipment", items_path %></button>
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="caret"></span>
-            <span class="sr-only">Toggle Dropdown</span>
-          </button>
-          <ul class="dropdown-menu">
-            <% Category.all.each do |c| %>
-              <li><%= link_to c.name, items_path(category: c.name) %></li>
-            <% end %>
-          </ul>
-        </div>
-        <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default"><%= link_to "List Equipment", new_item_path %></button>
-        </div>
-      </div>
+<!-- banner -->
+<div class="banner">
+  <h1>Hire Share</h1>
+  <!-- buttons -->
+  <div class="col-md-12">
+    <div class="btn-group btn-custom">
+      <button type="button" class="btn btn-default"><%= link_to "Hire Equipment", items_path %></button>
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu">
+        <% Category.all.each do |c| %>
+          <li><%= link_to c.name, items_path(category: c.name) %></li>
+        <% end %>
+      </ul>
     </div>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-default"><%= link_to "List Equipment", new_item_path %></button>
+    </div>
+  </div>
+</div>
 
+<!-- service item -->
+<div class="service-desc col-md-4">
+	<h3>Make money.</h3>
+	<p>
+		What's the most expensive piece of equipment you own, which you haven't used
+		in more than a month? You wouldn't let an employee or contractor sit around
+		doing nothing for a month, so why let your equipment do it?
+	</p>
+</div>
+<!-- end service item -->
 
-  </div><!--row end -->
-</div><!--container end -->
+<!-- service item -->
+<div class="service-desc col-md-4">
+	<h3>Pay less.</h3>
+	<p>
+		Equipment lease firms must charge high prices in order to justify their investment.
+		By borrowing off those who own equipment for their own use, you can borrow at
+		a lower cost, and both sides win.
+	</p>
+</div>
+<!-- end service item -->
+
+<!-- service item -->
+<div class="service-desc col-md-4">
+	<h3>Build sustainably.</h3>
+	<p>
+		Idle equipment is a waste of money and resources. By loaning and borrowing
+		equipment, you can help save materials and energy. Save money, make money,
+		 and reduce waste.
+	</p>
+</div>
+<!-- end service item -->
+<div class="home-footer">
+
+</div>
