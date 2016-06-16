@@ -7,4 +7,12 @@ class Item < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   validates_with AttachmentSizeValidator, attributes: :image, less_than: 4.megabytes
 
+  def self.text_search(query)
+    if query.present?
+      where("title @@ :q or description @@ :q", q: query)
+    else
+
+    end
+  end
+
 end

@@ -1,7 +1,14 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show, :home]
+  require 'will_paginate/array'
+  before_action :authenticate_user!, except: [:index, :show, :home, :search_results]
 
   def home
+  end
+
+  def search_results
+    if(params[:query])
+      @items = Item.text_search(params[:query]).page(params[:page]).per_page(3)
+    end
   end
 
   def hire

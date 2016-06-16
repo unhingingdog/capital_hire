@@ -1,0 +1,40 @@
+<div class="col-md-9">
+  <div class="container-fluid index-background">
+      <div class="row">
+
+          <div class="col-md-12">
+            <div class="dropdown categories-menu">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Categories
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu col-md-3" aria-labelledby="dropdownMenu1">
+                <li><%= link_to "All", items_path %></li>
+                <li role="separator" class="divider"></li>
+                <% Category.all.each do |c| %>
+                  <li><%= link_to c.name, items_path(category: c.name) %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+
+
+        <% @items.each do |item| %>
+          <div class="col-sm-4 col-lg-4 col-md-4 thumb">
+              <div class="thumbnail index-item">
+                  <div class="index-image">
+                    <%= image_tag item.image.url(:thumb, timestamp:false) if item.image? %>
+                  </div>
+                  <div class="caption">
+                      <h4 class="pull-right">$<%= item.rate %> per day</h4>
+                      <h4><%= link_to item.title, item %></h4>
+                      <p><%= truncate(item.specs, length: 30) %>
+                  </div>
+              </div>
+          </div>
+        <% end %>
+        <%= will_paginate @items %> 
+      </div>
+  </div>
+</div>
+</div>

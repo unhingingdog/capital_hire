@@ -19,13 +19,24 @@
       <button type="button" class="btn btn-default"><%= link_to "List Equipment", new_item_path %></button>
     </div>
   </div>
+  <!-- buttons end -->
+  <!-- search bar -->
+  <div class="home-search-bar">
+    <%= form_tag items_search_results_path, method: :get do %>
+      <p>
+        <%= text_field_tag :query, params[:query], class: "search-field" %><br />
+        <%= submit_tag "Search Equipment", name: nil, class: "search-button" %>
+      </p>
+    <% end %>
+  </div>
+  <!-- search bar end -->
 </div>
 
 <!-- service item -->
 <div class="service-desc col-md-4">
 	<h3>Make money.</h3>
 	<p>
-		What's the most expensive piece of equipment you own, which you haven't used
+		What's your most expensive piece of equipment which you haven't used
 		in more than a month? You wouldn't let an employee or contractor sit around
 		doing nothing for a month, so why let your equipment do it?
 	</p>
@@ -54,5 +65,6 @@
 </div>
 <!-- end service item -->
 <div class="home-footer">
-
 </div>
+<div class="home-footer-2">
+<div>

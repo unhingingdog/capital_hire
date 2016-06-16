@@ -12,6 +12,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'paperclip'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'will_paginate', '~> 3.0.7'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
