@@ -1,6 +1,9 @@
 <div class="row show">
   <div class="col-md-8 col-md-offset-2">
-    <div><%= image_tag @item.image.url(:medium, timestamp:false) if @item.image? %></div>
+    <div class="show-image"><%= image_tag @item.image.url(:medium, timestamp:false) if @item.image? %></div>
+    <div><h2><%= @item.title %></div></h2>
+    <div><p><%= @item.description %></p></div>
+    <div><p><%= @item.specs %></p></div>
     <div class="btn btn-default hire-button"><%= link_to "Hire now", items_hire_path %></div>
   </div>
 </div>

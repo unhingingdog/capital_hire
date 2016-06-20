@@ -17,10 +17,10 @@ class ItemsController < ApplicationController
 
   def index
     if params[:category].blank?
-      @items = Item.all.order("created_at DESC")
+      @items = Item.all.order("created_at DESC").page(params[:page]).per_page(6)
     else
       @category_id = Category.find_by(name: params[:category]).id
-      @items = Item.where(category_id: @category_id).order("created_at DESC")
+      @items = Item.where(category_id: @category_id).order("created_at DESC").page(params[:page]).per_page(6)
     end
   end
 

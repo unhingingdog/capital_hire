@@ -11,7 +11,7 @@ class Item < ActiveRecord::Base
     if query.present?
       where("title @@ :q or description @@ :q", q: query)
     else
-
+      # put something here 
     end
   end
 

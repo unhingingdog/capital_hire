@@ -3,6 +3,7 @@
 @import url(https://fonts.googleapis.com/css?family=Ubuntu);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import 'https://fonts.googleapis.com/css?family=Bungee|Cairo';
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
 //header
 .custom-navbar {
   height: 50px;
@@ -72,7 +73,7 @@
   width: 345px;
   height: 35px;
   border-radius: 5px;
-  font-family: courier;
+  font-family: 'Anonymous Pro', courier, serif;
 }
 
 .service-desc {
@@ -82,7 +83,7 @@
     font-weight: 100px;
   }
   p {
-    font-family: 'Courier', sans-serif;
+    font-family: 'Cairo', courier, serif;
   }
 }
 
@@ -91,7 +92,7 @@
    background-color: #769C7C;
    background-size: cover;
    height: 100px;
-   margin-top: 180px;
+   margin-top: 160px;
 }
 
 .home-footer-2 {
@@ -111,20 +112,39 @@
 
 //index
 
-.index-background {
-  background-color: #9C9C9C;
-}
-
 .categories-menu {
+  font-family: 'Bungee', cursive;
   padding: 15px;
-  margin-left: 20px;
   height: 100px;
   padding-top: 70px;
   padding-bottom: 70px;
+  display: inline-block;
+  h2 {
+    display: inline-block;
+    margin-left: 20px;
+  }
+  button {
+    display: inline-block;
+    padding: 10px;
+
+  }
+}
+
+.items-container {
+h4 {
+  font-family: 'ubuntu';
+}
+p {
+  font-family: 'Cairo', courier, serif;
+}
 }
 
 .index-item {
-  min-height: 270px;
+  min-height: 290px;
+  min-width: 270px;
+  margin-right: 10px;
+  max-height: 290px;
+  padding-bottom: 5px;
 }
 
 .index-image {
@@ -136,10 +156,23 @@
 
 }
 
+.page {
+  font-family: 'Bungee';
+  margin-bottom: 20px;
+}
+
+.nada {
+  font-family: 'Bungee';
+}
+
 //show
 
 .show {
   padding-top: 70px;
+}
+
+.show-image {
+  text-align: center;
 }
 
 .description-specs {
