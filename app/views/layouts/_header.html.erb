@@ -1,11 +1,6 @@
 <section class="navbar navbar-fixed-top custom-navbar" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
-			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-				<span class="icon icon-bar"></span>
-				<span class="icon icon-bar"></span>
-				<span class="icon icon-bar"></span>
-			</button>
       <ul class="nav navbar-nav">
         <li><%= link_to "Home", root_path %></li>
       </ul>
@@ -21,7 +16,7 @@
 					</button>
 					<ul class="dropdown-menu btn-header">
 						<% Location.all.each do |l| %>
-							<li><%= link_to l.name, items_path(category: l.name) %></li>
+							<li><%= link_to l.name, root_path %></li>
 						<% end %>
 					</ul>
 				</div>
