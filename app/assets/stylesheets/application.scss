@@ -24,7 +24,7 @@
 //home
 
 .banner {
- //background-image: url('trees.jpeg');
+ background-image: url('trees.jpeg');
  background-color: #769C7C;
  background-size: cover;
  color: white;
@@ -72,6 +72,7 @@
   width: 345px;
   height: 35px;
   border-radius: 5px;
+  font-family: courier;
 }
 
 .service-desc {
@@ -81,16 +82,16 @@
     font-weight: 100px;
   }
   p {
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Courier', sans-serif;
   }
 }
 
 .home-footer {
-   //background-image: url('trees.jpeg');
+   background-image: url('trees.jpeg');
    background-color: #769C7C;
    background-size: cover;
    height: 100px;
-   margin-top: 150px;
+   margin-top: 180px;
 }
 
 .home-footer-2 {
