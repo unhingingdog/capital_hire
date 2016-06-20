@@ -13,6 +13,7 @@ gem 'devise'
 gem 'paperclip'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'will_paginate', '~> 3.0.7'
+#gem 'filerrific'
 
 
 # Use ActiveModel has_secure_password

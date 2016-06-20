@@ -18,7 +18,9 @@
             </div>
           </div>
 
-
+        <% if @items.empty? %>
+          <%= link_to "...Nada. Try again?", root_path %>
+        <% end %>
         <% @items.each do |item| %>
           <div class="col-sm-4 col-lg-4 col-md-4 thumb">
               <div class="thumbnail index-item">
@@ -33,7 +35,7 @@
               </div>
           </div>
         <% end %>
-        <%= will_paginate @items %> 
+        <%= will_paginate @items %>
       </div>
   </div>
 </div>
