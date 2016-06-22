@@ -5,6 +5,6 @@
     <p><%= @item.category.name %> | <%= @item.location.name %></p>
     <div><p><%= @item.description %></p></div>
     <div><p><%= @item.specs %></p></div>
-    <div class="btn btn-default hire-button"><%= link_to "Hire now", items_hire_path %></div>
+    <div class="btn btn-default hire-button"><%= link_to "Hire now", new_item_order_path(@item) %></div>
   </div>
 </div>
