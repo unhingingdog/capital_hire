@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def hire
-    # temporary - use lineitem type model
+
   end
 
   def index
