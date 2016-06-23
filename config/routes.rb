@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'items#home'
   get '/items/hire', to: 'items#hire'
   get '/items/search_results', to: 'items#search_results'
+  get 'users/:id' => 'users#show'
   resources :items do
     resources :orders
   end
