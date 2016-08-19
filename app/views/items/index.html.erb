@@ -29,12 +29,12 @@
         <% @items.each do |item| %>
             <div class="thumbnail index-item col-md-3">
                 <div class="index-image">
-                  <%= image_tag item.image.url(:thumb, timestamp:false) if item.image? %>
+                  <%= image_tag item.image.url(:medium, timestamp:false) if item.image? %>
                 </div>
                 <div class="caption">
                     <h4 class="pull-right">$<%= item.rate %> per day</h4>
                     <h4><%= link_to truncate(item.title, length: 25), item %></h4>
-                    <p><%= @item.category.name %> | <%= @item.location.name %></p>
+                    <p> Placeholder for category and location </p>
                     <p><%= truncate(item.specs, length: 40) %>
                 </div>
             </div>
