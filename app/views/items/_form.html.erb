@@ -13,7 +13,8 @@
   </div>
   <div class="form-group">
     <%= f.label :category %><br />
-    <%= f.select :category_id, options_for_select(Category.all.map{|c|[c.name, c.id]}) %>
+    <%= f.select :category_id, options_for_select(Category.all.map{|c|[c.name, c.id]},
+                              class: 'category-select') %>
   </div>
   <div class="form-group">
     <%= f.label :image %><br />
