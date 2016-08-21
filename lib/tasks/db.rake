@@ -1,4 +1,6 @@
 namespace :db do
+  raise "Don't run this in production!" if Rails.env.production?
+
   desc "populates the database with users"
   task populate: :environment do
     User.destroy_all
@@ -19,16 +21,16 @@ namespace :db do
   desc "populates the database with locations"
   task populate: :environment do
     Location.destroy_all
-    Location.create!(name: 'Christchurch')
-    Location.create!(name: 'Wellington')
-    Location.create!(name: 'Auckland')
-    Location.create!(name: 'Dunedin')
-    Location.create!(name: 'Hamilton')
-    Location.create!(name: 'Nelson')
-    Location.create!(name: 'Westport')
-    Location.create!(name: 'Karamea')
-    Location.create!(name: 'Picton')
-    Location.create!(name: 'Copenhagen')
+    Location.create!(name: 'Christchurch', id: 1)
+    Location.create!(name: 'Wellington', id: 2)
+    Location.create!(name: 'Auckland', id: 3)
+    Location.create!(name: 'Dunedin', id: 4)
+    Location.create!(name: 'Hamilton', id: 5)
+    Location.create!(name: 'Nelson', id: 6)
+    Location.create!(name: 'Westport', id: 7)
+    Location.create!(name: 'Karamea', id: 8)
+    Location.create!(name: 'Picton', id: 9)
+    Location.create!(name: 'Copenhagen', id: 10)
   end
 
   desc 'Populates the database with categories'
