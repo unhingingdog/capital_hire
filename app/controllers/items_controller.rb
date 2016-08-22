@@ -31,7 +31,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
-
     if @item.save
       flash[:notice] = "Item listed"
       redirect_to item_path(@item)
@@ -47,7 +46,8 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:title, :description, :category_id, :rate, :image, :location_id, :specs)
+    params.require(:item).permit(:title, :description, :category_id, :rate,
+                                :image, :location_id, :specs, :address, :latitude, :longitude)
   end
 
 end

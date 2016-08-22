@@ -5,11 +5,11 @@
   </div>
   <div class="form-group">
     <%= f.label :description %><br />
-    <%= f.text_field :description %>
+    <%= f.text_area :description %>
   </div>
   <div class="form-group">
     <%= f.label :specs %><br />
-    <%= f.text_field :specs %>
+    <%= f.text_area :specs %>
   </div>
   <div class="form-group">
     <%= f.label :category %><br />
@@ -27,6 +27,10 @@
   <div class="form-group">
     <%= f.label :location %><br />
     <%= f.select :location_id, options_for_select(Location.all.map{|c|[c.name, c.id]}) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
   </div>
   <%= f.submit "List Item" %>
 <% end %>

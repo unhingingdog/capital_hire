@@ -8,6 +8,14 @@ class Item < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   validates_with AttachmentSizeValidator, attributes: :image, less_than: 4.megabytes
 
+  #maps stuff
+  def full_address
+    self.address + ", " + self.location.name + ", " + "New Zealand"
+  end
+  geocoded_by :full_address
+  after_validation :geocode
+
+  #postgresql search
   def self.text_search(query)
     if query.present?
       where("title @@ :q or description @@ :q", q: query)
