@@ -26,6 +26,7 @@ feature 'Creating Items' do
     expect(page).to have_select("item[location_id]")
     select('Christchurch', from: 'item[location_id]')
     page.attach_file('item[image]', Rails.root + 'spec/Fixtures/mixer.jpg')
+    fill_in 'Address', with: '1 Colombo Street'
     click_button 'List Item'
 
     expect(page).to have_content("$10 per day")
@@ -38,6 +39,15 @@ feature 'Creating Items' do
     click_link 'Hire Equipment'
     click_link '10 fence'
     expect(page).to have_content("chainlink fences")
+    expect(page).to have_css("#map")
+    #expect(page).to have_link(href: 'https://maps.google.com/maps?ll=-43.514347,172.597937&amp;z=21&amp;t=m&amp;hl=en-US&amp;gl=US&amp;mapclient=apiv3')
     expect(page).to have_content("$70 per day")
+  end
+
+  scenario 'cannot create item without logging in' do
+    visit '/'
+    click_link 'Sign Out'
+    click_link 'List Equipment'
+    expect(page).to have_content("Remember me")
   end
 end

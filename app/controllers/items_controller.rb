@@ -7,12 +7,11 @@ class ItemsController < ApplicationController
 
   def search_results
     if(params[:query])
-      @items = Item.text_search(params[:query]).page(params[:page]).per_page(3)
+      @items = Item.text_search(params[:query]).page(params[:page]).per_page(20)
     end
   end
 
   def hire
-
   end
 
   def index

@@ -4,7 +4,9 @@
 
           <div class="col-md-12">
             <div class="dropdown categories-menu">
-              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <button class="btn btn-default dropdown-toggle" type="button"
+                id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="true">
                 Categories
                 <span class="caret"></span>
               </button>
@@ -18,7 +20,7 @@
             </div>
           </div>
 
-        <div class="nada">  
+        <div class="nada">
           <% if @items.empty? %>
             <%= link_to "...Nada. Try again?", root_path %>
           <% end %>
@@ -37,8 +39,7 @@
               </div>
           </div>
         <% end %>
-        <%= will_paginate @items %>
       </div>
   </div>
-</div>
+  <%= will_paginate @items %>
 </div>

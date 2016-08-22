@@ -8,5 +8,8 @@ FactoryGirl.define do
     user_id 1
     location_id 1
     rate 70
+    address '1 Colombo Street'
+    latitude -43.5687040802915
+    longitude 172.6335858697085
   end
 end
