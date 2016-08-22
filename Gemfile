@@ -18,6 +18,8 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'jquery-ui-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'geocoder'
+gem 'gmaps4rails'
+gem 'underscore-rails'
 
 #gem 'filerrific'
 

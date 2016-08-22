@@ -13,7 +13,7 @@ class Item < ActiveRecord::Base
     self.address + ", " + self.location.name + ", " + "New Zealand"
   end
   geocoded_by :full_address
-  after_validation :geocode
+  after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
 
   #postgresql search
   def self.text_search(query)
