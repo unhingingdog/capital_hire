@@ -7,12 +7,21 @@ class ItemsController < ApplicationController
 
   def search_results
     unless(params[:query]).blank?
-      @items = Item.text_search(params[:query]).page(params[:page]).per_page(20)
+      item = SearchService.new(Item)
+      @items = item.search(params[:query]).page(params[:page]).per_page(20)
     else
       redirect_to root_path
       flash[:error] = "Please enter a keyword"
     end
   end
+
+  #   unless(params[:query]).blank?
+  #     @items = Item.text_search(params[:query]).page(params[:page]).per_page(20)
+  #   else
+  #     redirect_to root_path
+  #     flash[:error] = "Please enter a keyword"
+  #   end
+  # end
 
   def index
     if params[:category].blank?
