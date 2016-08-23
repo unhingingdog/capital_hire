@@ -6,12 +6,14 @@ namespace :db do
     User.destroy_all
     User.create!(
       email: 'user@example.com',
+      phone: '022 421 7109',
       password: 'password',
       password_confirmation: 'password'
     )
     100.times do
       User.create!(
         email: Faker::Internet.email,
+        phone:Faker::PhoneNumber.cell_phone,
         password: 'password',
         password_confirmation: 'password'
       )

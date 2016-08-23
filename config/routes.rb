@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_scope :user do
    get '/users/sign_out' => 'devise/sessions#destroy'
  end
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations'}
   root 'items#home'
   get '/items/hire', to: 'items#hire'
   get '/items/search_results', to: 'items#search_results'

@@ -6,12 +6,12 @@ class ItemsController < ApplicationController
   end
 
   def search_results
-    if(params[:query])
+    unless(params[:query]).blank?
       @items = Item.text_search(params[:query]).page(params[:page]).per_page(20)
+    else
+      redirect_to root_path
+      flash[:error] = "Please enter a keyword"
     end
-  end
-
-  def hire
   end
 
   def index
