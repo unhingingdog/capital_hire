@@ -5,7 +5,8 @@ feature 'creating orders' do
   before do
     visit '/'
     user = FactoryGirl.create(:user)
-    hirer = FactoryGirl.create(:user, email: "hirer@example.com")
+    hirer = FactoryGirl.create(:user, email: "hirer@example.com",
+                               phone: '09876543')
     item = FactoryGirl.create(:item, user_id: user.id + 1, title: "heavy mixer")
     click_link 'Sign In'
     fill_in 'Email', with: user.email

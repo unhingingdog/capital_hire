@@ -45,4 +45,34 @@ describe User do
       password_confirmation: 'password')
     expect(user).not_to be_valid
   end
+
+  it "is invalid when email is not unique" do
+    user = User.create(
+      email: 'greg@example.com',
+      phone: '123456789',
+      password: 'password',
+      password_confirmation: 'password')
+    user2 = User.new(
+      email: 'greg@example.com',
+      phone: '123456789',
+      password: 'password',
+      password_confirmation: 'password')
+    expect(user2).not_to be_valid
+    expect(user2.errors[:email]).to include("has already been taken")
+  end
+
+  it "is invalid when phone number is not unique" do
+    user = User.create(
+      email: 'greg@example.com',
+      phone: '123456789',
+      password: 'password',
+      password_confirmation: 'password')
+    user2 = User.new(
+      email: 'greg2@example.com',
+      phone: '123456789',
+      password: 'password',
+      password_confirmation: 'password')
+    expect(user2).not_to be_valid
+    expect(user2.errors[:phone]).to include("has already been taken")
+  end
 end
