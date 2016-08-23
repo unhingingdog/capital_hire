@@ -1,6 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
   def create
-    @user = User.new(signup_params)
+    @user = User.new(sign_up_params)
+    if @user.save
+      redirect_to root_path
+    else
+      flash[:error] = "user not created"
+    end
   end
 
   private
