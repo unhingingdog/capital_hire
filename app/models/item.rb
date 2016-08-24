@@ -20,11 +20,12 @@ class Item < ActiveRecord::Base
                                           less_than: 4.megabytes
 
   #maps stuff
+
+  def full_address
+    self.location ? "#{self.address}, #{self.location.name}, New Zealand" : self.address
+  end
   geocoded_by :full_address
   after_validation :geocode,
                     if: ->(obj){ obj.address.present? and obj.address_changed? }
 
-  def full_address
-    location ? "#{self.address}, #{self.location}, New Zealand" : self.address
-  end
 end

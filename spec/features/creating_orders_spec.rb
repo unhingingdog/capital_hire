@@ -21,7 +21,7 @@ feature 'creating orders' do
     click_link 'Hire now'
 
     expect(page).to have_content("New Order")
-    fill_in 'Phone', with: '08008383883'
+    fill_in 'Details of job', with: 'Using to mix concrete for fencing'
     select('April', from: 'order[start_date(2i)]')
     select('1', from: 'order[start_date(3i)]')
     select('2018', from: 'order[start_date(1i)]')

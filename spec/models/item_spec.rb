@@ -65,4 +65,17 @@ describe Item do
     expect(item).not_to be_valid
     expect(item.errors[:location_id]).to include("can't be blank")
   end
+
+  it "returns an item's address and location as a string" do
+    item = Item.create(
+      title: 'Digger',
+      description: 'This is a digger',
+      rate: 40,
+      category_id: 1,
+      location_id: 1,
+      user_id: 1,
+      address: '1 Colombo Street')
+    #FIGURE OUT TEST BELOW
+    # expect(item.full_address).to eq '1 Colombo Street, Christchurch, New Zealand'
+  end
 end
