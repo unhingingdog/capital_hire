@@ -12,6 +12,10 @@ class Item < ActiveRecord::Base
   validates :location_id, presence: true
   validates :rate, presence: true
 
+  #scopes
+  scope :by_category, ->(category) { where('category_id = ?', category)}
+  scope :by_location, ->(location) { where('location_id = ?', location)}
+
   #paperclip
   has_attached_file :image, styles: { medium: "150x150>", thumb: "100x100>" },
                                       default_url: "/images/:style/missing.png"
