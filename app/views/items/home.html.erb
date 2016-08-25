@@ -23,10 +23,10 @@
   <!-- search bar -->
   <div class="home-search-bar">
     <%= form_tag items_search_results_path, method: :get do %>
-      <p>
-        <%= text_field_tag :query, params[:query], class: "search-field" %><br />
-        <%= submit_tag "Search Equipment", name: nil, class: "search-button" %>
-      </p>
+      <%= text_field_tag :category, params[:category], class: "search-field" %><br />
+      <%= text_field_tag :location, params[:location], class: "search-field" %><br />
+      <%= text_field_tag :query, params[:query], class: "search-field" %><br />
+      <%= submit_tag "Search Equipment", name: nil, class: "search-button" %>
     <% end %>
   </div>
   <!-- search bar end -->

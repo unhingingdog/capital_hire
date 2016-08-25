@@ -16,6 +16,30 @@ class Item < ActiveRecord::Base
   scope :by_category, ->(category) { where('category_id = ?', category)}
   scope :by_location, ->(location) { where('location_id = ?', location)}
 
+  #search engine
+  def self.searcher(query, location, category)
+    unless query.blank?
+      item = SearchService.new(Item)
+      if location == nil && category == nil
+        items = item.search(query)
+      elsif location == nil
+        items = item.search(query).by_category(category)
+      elsif category == nil
+        items = item.search(query).by_location(location)
+      else
+        items = item.search(query).by_location(location).by_category(category)
+      end
+    else
+      if location == nil && category == nil
+        items = Item.all
+      elsif location == nil
+        items = Item.all.by_category(category)
+      else category == nil
+        items = Item.all.by_location(location)
+      end
+    end
+  end
+
   #paperclip
   has_attached_file :image, styles: { medium: "150x150>", thumb: "100x100>" },
                                       default_url: "/images/:style/missing.png"
