@@ -35,7 +35,7 @@
                 <div class="caption">
                     <h4 class="pull-right">$<%= item.rate %> per day</h4>
                     <h4><%= link_to truncate(item.title, length: 25), item %></h4>
-                    <p>placeholder</p>
+                    <p><%= item.location.name %> | <%= item.category.name %></p>
                     <p><%= truncate(item.specs, length: 40) %>
                 </div>
             </div>

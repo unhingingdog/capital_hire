@@ -34,8 +34,10 @@ class Item < ActiveRecord::Base
         items = Item.all
       elsif location == nil
         items = Item.all.by_category(category)
-      else category == nil
+      elsif category == nil
         items = Item.all.by_location(location)
+      else
+        items = Item.all.by_location(location).by_category(category)
       end
     end
   end
