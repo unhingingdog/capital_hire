@@ -16,7 +16,7 @@ class Item < ActiveRecord::Base
   scope :by_category, ->(category) { where('category_id = ?', category)}
   scope :by_location, ->(location) { where('location_id = ?', location)}
 
-  #search engine
+  #search/scopes
   def self.searcher(query, location, category)
     unless query.blank?
       item = SearchService.new(Item)
