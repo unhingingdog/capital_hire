@@ -25,8 +25,8 @@ feature 'searching items' do
 
   scenario 'searching with location and category' do
     fill_in 'query', with: @item.title
-    fill_in 'location', with: @location1.name
-    fill_in 'category', with: @category1.name
+    select(@location1.name, from: 'location')
+    select(@category1.name, from: 'category')
     click_button 'Search Equipment'
     expect(page).to have_content(@item.title)
     expect(page).to have_content("Sorry, I can't do that Dave")
@@ -35,9 +35,6 @@ feature 'searching items' do
   end
 
   scenario 'searching for all' do
-    fill_in 'query', with: ""
-    fill_in 'location', with: ""
-    fill_in 'category', with: ""
     click_button 'Search Equipment'
     expect(page).to have_content(@item.title)
     expect(page).to have_content(@item2.title)
@@ -46,8 +43,6 @@ feature 'searching items' do
 
   scenario 'searching for keyword in all categories and locations' do
     fill_in 'query', with: "light"
-    fill_in 'location', with: ""
-    fill_in 'category', with: ""
     click_button 'Search Equipment'
     expect(page).to have_content(@item3.title)
     expect(page).to_not have_content("heavy")
@@ -56,8 +51,7 @@ feature 'searching items' do
 
   scenario 'searching for keyword in category' do
     fill_in 'query', with: @item3.title.split(" ").first
-    fill_in 'location', with: ""
-    fill_in 'category', with: @category1.name
+    select(@category1.name, from: 'category')
     click_button 'Search Equipment'
     expect(page).to have_content("light")
     expect(page).to_not have_content("heavy")
@@ -66,8 +60,7 @@ feature 'searching items' do
 
   scenario 'searching for keyword in category 2' do
     fill_in 'query', with: @item2.title.split(" ").first
-    fill_in 'location', with: ""
-    fill_in 'category', with: @category2.name
+    select(@category2.name, from: 'category')
     click_button 'Search Equipment'
     expect(page).to have_content("Aluminum")
     expect(page).to_not have_content("mixer")
@@ -76,8 +69,7 @@ feature 'searching items' do
 
   scenario 'searching for keyword in location' do
     fill_in 'query', with: @item4.title.split(" ").first
-    fill_in 'location', with: @location2.name
-    fill_in 'category', with: ""
+    select(@location2.name, from: 'location')
     click_button 'Search Equipment'
     expect(page).to have_content("Steel")
     expect(page).to_not have_content("mixer")
@@ -86,8 +78,7 @@ feature 'searching items' do
 
   scenario 'searching for all in a location' do
     fill_in 'query', with: ""
-    fill_in 'location', with: @location2.name
-    fill_in 'category', with: ""
+    select(@location2.name, from: 'location')
     click_button 'Search Equipment'
     expect(page).to have_content(@item3.title)
     expect(page).to have_content(@item4.title)
@@ -96,9 +87,7 @@ feature 'searching items' do
   end
 
   scenario 'searching for all in a category' do
-    fill_in 'query', with: ""
-    fill_in 'location', with: ""
-    fill_in 'category', with: @category1.name
+    select(@category1.name, from: 'category')
     click_button 'Search Equipment'
     expect(page).to have_content(@item.title)
     expect(page).to have_content(@item3.title)
@@ -108,8 +97,8 @@ feature 'searching items' do
 
   scenario 'searching for all in a category and location' do
     fill_in 'query', with: ""
-    fill_in 'location', with: @location2.name
-    fill_in 'category', with: @category2.name
+    select(@location2.name, from: 'location')
+    select(@category2.name, from: 'category')
     click_button 'Search Equipment'
     expect(page).to have_content(@item4.title)
     expect(page).to_not have_content(@item.title)

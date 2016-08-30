@@ -1,30 +1,11 @@
 <!-- banner -->
 <div class="banner">
   <h1>Hire Share</h1>
-  <!-- buttons -->
-  <div class="col-md-12">
-    <div class="btn-group btn-custom">
-      <button type="button" class="btn btn-default"><%= link_to "Hire Equipment", items_path %></button>
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="caret"></span>
-        <span class="sr-only">Toggle Dropdown</span>
-      </button>
-      <ul class="dropdown-menu">
-        <% Category.all.each do |c| %>
-          <li><%= link_to c.name, items_path(category: c.name) %></li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="btn-group" role="group">
-      <button type="button" class="btn btn-default"><%= link_to "List Equipment", new_item_path %></button>
-    </div>
-  </div>
-  <!-- buttons end -->
   <!-- search bar -->
   <div class="home-search-bar">
-    <%= form_tag items_search_results_path, method: :get do %>
-      <%= text_field_tag :category, params[:category], class: "search-field" %><br />
-      <%= text_field_tag :location, params[:location], class: "search-field" %><br />
+    <%= form_tag(items_search_results_path, method: :get) do %>
+      <%= select_tag(:category, options_for_select(@categories), include_blank: "All") %><br />
+      <%= select_tag(:location, options_for_select(@locations), include_blank: "All") %><br />
       <%= text_field_tag :query, params[:query], class: "search-field" %><br />
       <%= submit_tag "Search Equipment", name: nil, class: "search-button" %>
     <% end %>

@@ -3,13 +3,15 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :home, :search_results]
 
   def home
+    @categories = Category.all.map{ |u| [ u.name, u.id ] }
+    @locations = Location.all.map{ |u| [ u.name, u.id ] }
   end
 
   def search_results
-    category = find_category_id(params[:category])
-    location = find_location_id(params[:location])
+    category = params[:category].empty? ? nil : params[:category].to_i
+    location = params[:location].empty? ? nil : params[:location].to_i
     query = params[:query]
-    @items = Item.searcher(query, location, category).order("created_at DESC").page(params[:page]).per_page(20)
+    @items = Item.searcher(params[:query], location, category).order("created_at DESC").page(params[:page]).per_page(20)
   end
 
   def index
@@ -47,33 +49,4 @@ class ItemsController < ApplicationController
                                 :image, :location_id, :specs, :address,
                                 :latitude, :longitude, :category, :location)
   end
-
-  def find_category_id(category_name)
-    category_name.blank? ? nil : Category.find_by(name: category_name).id
-  end
-
-  def find_location_id(location_name)
-    location_name.blank? ? nil : Location.find_by(name: location_name).id
-  end
-
-  # def searcher(query, location, category)
-  #   unless query.blank?
-  #     item = SearchService.new(Item)
-  #     if location.blank? && category.blank?
-  #       items = item.search(query)
-  #     elsif location.blank?
-  #       items = item.search(query).by_category(category)
-  #     else
-  #       items = item.search(query).by_location(location)
-  #     end
-  #   else
-  #     if category.blank? && location.blank?
-  #       items = Item.all
-  #     elsif category.blank?
-  #       items = Item.by_location(location)
-  #     else
-  #       items = Item.by_category(category)
-  #     end
-  #   end
-  # end
 end

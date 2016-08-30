@@ -36,7 +36,7 @@ feature 'Creating Items' do
   scenario "can view item" do
     item = FactoryGirl.create(:item)
     visit "/"
-    click_link 'Hire Equipment'
+    click_button 'Search Equipment'
     click_link '10 fence'
     expect(page).to have_content("chainlink fences")
     expect(page).to have_css("#map")
