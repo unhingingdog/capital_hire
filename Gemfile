@@ -20,6 +20,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'underscore-rails'
+gem 'ancestry'
 
 #gem 'filerrific'
 
