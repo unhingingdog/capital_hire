@@ -4,6 +4,7 @@ class Item < ActiveRecord::Base
   belongs_to :category
   belongs_to :location
   has_many :orders
+  has_many :bookings
 
   #validations
   validates :title, presence: true
